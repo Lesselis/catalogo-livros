@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Lista de Livros</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Gênero</th>
+            <th>Ano</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for livro in livros %}
+        <tr>
+            <td>{{ livro.titulo }}</td>
+            <td>{{ livro.autor }}</td>
+            <td>{{ livro.genero }}</td>
+            <td>{{ livro.ano }}</td>
+            <td>
+                <a href="{{ url_for('editar_livro_rota', id_livro=loop.index0) }}">Editar</a>
+                <a href="{{ url_for('deletar_livro_rota', id_livro=loop.index0) }}">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

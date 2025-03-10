@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Deletar Livro</h2>
+<p>Você tem certeza que deseja deletar o livro "{{ livro.titulo }}"?</p>
+<form action="{{ url_for('deletar_livro_rota', id_livro=id_livro) }}" method="post">
+    <button type="submit">Confirmar</button>
+    <a href="{{ url_for('index') }}">Cancelar</a>
+</form>
+{% endblock %}
