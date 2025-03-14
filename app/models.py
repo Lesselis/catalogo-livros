@@ -1,7 +1,8 @@
 # Definição do modelo para os dados do livro
 
 class Livro:
-    def __init__(self, titulo, autor, genero, ano):
+    def __init__(self, id, titulo, autor, genero, ano):
+        self.id = id
         self.titulo = titulo
         self.autor = autor
         self.genero = genero
@@ -9,6 +10,7 @@ class Livro:
 
     def para_dict(self):
         return {
+            "id": self.id,
             "titulo": self.titulo,
             "autor": self.autor,
             "genero": self.genero,
@@ -18,6 +20,7 @@ class Livro:
     @staticmethod
     def de_dict(data):
         return Livro(
+            id=data.get("id"),
             titulo=data.get("titulo"),
             autor=data.get("autor"),
             genero=data.get("genero"),
