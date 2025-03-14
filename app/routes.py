@@ -44,3 +44,9 @@ def editar_livro_rota(id_livro):
 def deletar_livro_rota(id_livro):
     deletar_livro(id_livro)
     return redirect(url_for('index'))
+
+@app.route('/delete/confirm/<int:id_livro>', methods=['GET'])
+def confirmar_deletar_livro_rota(id_livro):
+    livros = carregar_livros()
+    livro = next((livro for livro in livros if livro.id == id_livro), None)
+    return render_template('delete_livro.html', livro=livro, id_livro=id_livro)
