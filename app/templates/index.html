@@ -20,8 +20,8 @@
             <td>{{ livro.genero }}</td>
             <td>{{ livro.ano }}</td>
             <td>
-                <a href="{{ url_for('editar_livro_rota', id_livro=loop.index0) }}">Editar</a>
-                <a href="{{ url_for('deletar_livro_rota', id_livro=loop.index0) }}">Deletar</a>
+                <a href="{{ url_for('editar_livro_rota', id_livro=livro.id) }}">Editar</a>
+                <a href="{{ url_for('confirmar_deletar_livro_rota', id_livro=livro.id) }}">Deletar</a>
             </td>
         </tr>
         {% endfor %}
