@@ -8,7 +8,7 @@ class Livro:
         self.genero = genero
         self.ano = ano
 
-    def para_dict(self):
+    def converter_para_dicionario(self):
         return {
             "id": self.id,
             "titulo": self.titulo,
@@ -18,7 +18,7 @@ class Livro:
         }
 
     @staticmethod
-    def de_dict(data):
+    def construir_de_dicionario(data):
         return Livro(
             id=data.get("id"),
             titulo=data.get("titulo"),
